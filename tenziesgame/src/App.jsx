@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import Die from './Die'
+import {nanoid} from "nanoid"
 
 export default function App() {
 
@@ -9,22 +10,27 @@ export default function App() {
 
 
 
-  //Creating a 10-length array of numbers between 1-6
+  //Creando 10 numeros random para los dados 
   function allNewDice() {
-    const randomArray = []
+    const newDice = []
     for(let i = 0; i < 10; i++) {
       const randomNumber = Math.ceil(Math.random() * 6)
-      randomArray.push(randomNumber)
+      newDice.push({
+        value: randomNumber, 
+        isHeld: false,
+        id: nanoid()
+      })
     }
-    return randomArray
+    return newDice    
   } 
 
   //Seteando el numero que mostrará cada dado haciendo uso de .map en el array random generado
-  const diceElements = dice.map((number) => {
+  const diceElements = dice.map((die) => {
     return (
       <Die 
-        value={number}
-        />
+        key = {die.id}
+        value = {die.value}
+      />
     ) 
   }) 
 

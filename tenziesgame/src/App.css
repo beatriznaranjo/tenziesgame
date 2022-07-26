@@ -21,7 +21,7 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -34,7 +34,7 @@ body {
 .die--square {
   width: 60px;
   height: 60px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   display: flex;
@@ -47,26 +47,20 @@ body {
   font-family: "Karla";
   font-weight: 700;
   font-size: 2rem;
-  color: #2B283A;
-  
+  color: #2b283a;
 }
 
 .roll-button {
-  font-family: 'Karla';
+  font-family: "Karla";
   font-weight: 700;
   font-size: 2rem;
   display: flex;
   align-items: center;
   text-align: center;
-  color: #FFFFFF;
-  background: #5035FF;
-  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  background: #5035ff;
   border-radius: 4px;
   margin-top: 2rem;
+  border: none;
+  cursor: pointer;
 }
-
-
-
-  
- 
-
