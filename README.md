@@ -1,2 +1,2 @@
 # tenziesgame 
-Practica de React haciendo juego de dados
+Práctica de React haciendo juego de dados
