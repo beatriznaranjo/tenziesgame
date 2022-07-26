@@ -4,6 +4,7 @@ import './App.css'
 import Die from './Die'
 
 export default function App() {
+
   const [dice, setDice] = useState(allNewDice())
 
 
@@ -18,16 +19,19 @@ export default function App() {
     return randomArray
   } 
 
-
+  //Seteando el numero que mostrará cada dado haciendo uso de .map en el array random generado
   const diceElements = dice.map((number) => {
     return (
       <Die 
-        key={number}
         value={number}
         />
-
     ) 
-  })
+  }) 
+
+  //Funcion para volver a tirar los dados usando el botón 
+  function rollNewDice() {
+    setDice(allNewDice())
+  }
 
 
   return (
@@ -36,7 +40,7 @@ export default function App() {
         <div className="dice--container">
           {diceElements}
         </div>
-        <button onClick={rollNewDice}>Roll Dice</button>
+        <button onClick={rollNewDice} className="roll-button">Roll Dice</button>
       </div>
     </main>
   )

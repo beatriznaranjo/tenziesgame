@@ -51,6 +51,19 @@ body {
   
 }
 
+.roll-button {
+  font-family: 'Karla';
+  font-weight: 700;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  background: #5035FF;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-top: 2rem;
+}
 
 
 
