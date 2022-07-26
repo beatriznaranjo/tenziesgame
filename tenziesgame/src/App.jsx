@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import Die from './Die'
@@ -8,7 +8,25 @@ import { faWheatAwnCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 export default function App() {
 
   const [dice, setDice] = useState(allNewDice())
+
+  //tenzies representa si se ha ganado el juego o no
+  const [tenzies, setTenzies] = useState(false)
+
+
+  //Efecto que corre solo cuando el estado de los dados cambia
+  useEffect(()=>{
+    const allHeld = dice.every(die => die.isHeld === true)
+    const numbers = dice.map(die => die.value)
+    const allSameNumbers = numbers.every(number => number === numbers[0])
+    if (allHeld && allSameNumbers) {
+      console.log("Yow won the game")
+      setTenzies(true)
+    }
   
+  }, [dice])
+
+  
+  //Generar dado nuevo> objeto
   function generateNewDie() {
       return {
         value: Math.ceil(Math.random() * 6), 
