@@ -1,9 +1,8 @@
 import { React, useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Die from './Die'
 import {nanoid} from "nanoid"
-import { faWheatAwnCircleExclamation } from '@fortawesome/free-solid-svg-icons'
+import Confetti from 'react-confetti'
 
 export default function App() {
 
@@ -22,7 +21,6 @@ export default function App() {
       console.log("Yow won the game")
       setTenzies(true)
     }
-  
   }, [dice])
 
   
@@ -51,7 +49,17 @@ export default function App() {
             die: 
             generateNewDie()             
       }))
-    
+    }
+
+    //function Reset game
+    function resetGame() {
+      setDice(allNewDice())
+      setTenzies(false)
+    }
+
+    //Funcion dependiente del estado del juego
+    function gameStatus() {
+      tenzies ? resetGame() : rollNewDice()
     }
   
     //Funcion para "sostener" los dados al hacer click
@@ -76,18 +84,20 @@ export default function App() {
     ) 
   }) 
 
+  
 
 
 
   return (
     <main className="main">
+      {tenzies && <Confetti />}
       <div className="main-body">
         <h1 className="title">Tenzies</h1>
         <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
         <div className="dice--container">
           {diceElements}
         </div>
-        <button onClick={rollNewDice} className="roll-button">Roll Dice</button>
+        <button onClick={gameStatus} className="roll-button">{tenzies ? "Play again" : "Roll new dice"}</button>
       </div>
     </main>
   )
